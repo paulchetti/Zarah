@@ -1,6 +1,6 @@
-# 🌌 Sonara - Intelligent Audio MIR & Harmonic Visualizer
+# 🌌 Zarah - Intelligent Audio MIR & Harmonic Visualizer
 
-**Sonara** is a production-ready, full-stack music intelligence workstation designed for musicians, producers, and learners to extract chords, musical keys, beat grids, and strumming patterns from audio recordings, visualizing them in real time across an artisan guitar fretboard and concert grand piano.
+**Zarah** is a production-ready, full-stack music intelligence workstation designed for musicians, producers, and learners to extract chords, musical keys, beat grids, and strumming patterns from audio recordings, visualizing them in real time across an artisan guitar fretboard and concert grand piano.
 
 ---
 
@@ -52,7 +52,7 @@
 - **Backend API**: Python 3.11, FastAPI, Uvicorn, Librosa, SciPy, NumPy, SoundFile, Pytest.
 
 ```
-Sonara/
+Zarah/
 ├── backend/
 │   ├── services/
 │   │   ├── audio_processor.py   # Audio loading, resampling & pipeline orchestration
