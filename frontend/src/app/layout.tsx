@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -29,6 +30,14 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${jakarta.variable} h-full antialiased dark`}
     >
+      <head>
+        {/* Monetag MultiTag (all-in-one) Ad Script */}
+        <Script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="278492"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#05070d] text-slate-100 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
         {children}
       </body>
