@@ -78,7 +78,7 @@ export const RewardedAdModal: React.FC<RewardedAdModalProps> = ({
         console.warn('Pop-up blocker caught direct link, continuing reward:', err);
       }
     }
-    // Grant reward and unlock chords in Sonara
+    // Grant reward and unlock chords in Zarah
     onRewardEarned();
   };
 
@@ -145,7 +145,7 @@ export const RewardedAdModal: React.FC<RewardedAdModalProps> = ({
                 Sponsored Partner
               </p>
               <h4 className="text-sm font-semibold text-white mt-0.5">
-                Sonara Pro Audio Studio
+                Zarah Pro Audio Studio
               </h4>
               <p className="text-[11px] text-slate-400 max-w-xs mt-1">
                 AI Harmonic separation, Capo transposer, and real-time interactive fretboard visualizer.
@@ -217,7 +217,7 @@ export const RewardedAdModal: React.FC<RewardedAdModalProps> = ({
 
         {/* Legal / User Notice */}
         <p className="text-[10px] text-slate-400 text-center mt-3 relative z-10">
-          Viewing this quick sponsor message keeps Sonara AI free for musicians worldwide.
+          Viewing this quick sponsor message keeps Zarah AI free for musicians worldwide.
         </p>
       </div>
     </div>

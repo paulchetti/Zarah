@@ -15,7 +15,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Sonara - Intelligent Audio MIR & Harmonic Visualizer",
+  title: "Zarah - Intelligent Audio MIR & Harmonic Visualizer",
   description: "Extract chords, musical keys, beat grids, and strumming patterns from audio in real-time. Interactive guitar fretboard and piano keyboard visualization.",
 };
 

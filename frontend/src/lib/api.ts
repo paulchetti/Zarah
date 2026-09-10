@@ -137,7 +137,7 @@ export async function analyzeAudioUrl(url: string): Promise<AnalysisResult> {
     // If backend is offline/unreachable and it's a YouTube link, inform the user
     if (isYT) {
       throw new Error(
-        'The Sonara Python backend is required to extract and analyze YouTube audio. Please ensure the backend is running at http://127.0.0.1:8000 (run start.bat or start.ps1).'
+        'The Zarah Python backend is required to extract and analyze YouTube audio. Please ensure the backend is running at http://127.0.0.1:8000 (run start.bat or start.ps1).'
       );
     }
 

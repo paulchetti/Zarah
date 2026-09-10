@@ -26,7 +26,7 @@ def test_api_health():
     assert response.status_code == 200
     data = response.json()
     assert data["status"] == "ok"
-    assert "Sonara" in data["service"]
+    assert "Zarah" in data["service"]
 
 
 def test_api_samples():

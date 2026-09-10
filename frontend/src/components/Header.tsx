@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
   return (
     <header className="w-full border-b border-white/[0.06] bg-[#05070d]/80 backdrop-blur-2xl sticky top-0 z-50 px-4 lg:px-8 py-3.5 transition-all">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        {/* Sonara Brand Identity */}
+        {/* Zarah Brand Identity */}
         <div className="flex items-center gap-3.5">
           <div className="relative group cursor-pointer">
             {/* Glowing ambient aura */}
@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
           <div>
             <div className="flex items-center gap-2.5">
               <h1 className="text-2xl font-black tracking-tight text-white font-[family-name:var(--font-outfit)]">
-                Sonara
+                Zarah
               </h1>
               <span className="text-[10px] font-extrabold tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-cyan-500/10 text-amber-300 border border-amber-500/30 shadow-[0_0_10px_rgba(245,158,11,0.15)]">
                 AUDIO MIR STUDIO

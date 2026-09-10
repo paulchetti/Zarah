@@ -69,7 +69,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="font-extrabold text-white tracking-tight font-[family-name:var(--font-outfit)] text-sm">
-              Sonara
+              Zarah
             </span>
             <span className="text-slate-400">•</span>
             <span>Intelligent Audio MIR & Harmonic Visualizer</span>

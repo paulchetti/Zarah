@@ -42,7 +42,7 @@
    - **Transposition & Capo Tools**: Real-time pitch shifting (+/- 6 semitones) and guitar capo recalculation (frets 0 to 7).
 
 7. **Graceful Offline Fallback**:
-   - If the Python FastAPI backend is offline, Sonara automatically falls back to an embedded client-side MIR engine so that the application and practice tools remain 100% functional.
+   - If the Python FastAPI backend is offline, Zarah automatically falls back to an embedded client-side MIR engine so that the application and practice tools remain 100% functional.
 
 ---
 

@@ -318,7 +318,7 @@ export const AudioUploader: React.FC = () => {
               </div>
             ) : (
               <p className="text-[11px] text-slate-400">
-                Paste any YouTube link (<span className="text-slate-300 font-medium">watch, share, shorts</span>) or direct audio URL. Sonara extracts the audio stream and computes chords, key & rhythm.
+                Paste any YouTube link (<span className="text-slate-300 font-medium">watch, share, shorts</span>) or direct audio URL. Zarah extracts the audio stream and computes chords, key & rhythm.
               </p>
             )}
           </form>

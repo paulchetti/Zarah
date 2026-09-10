@@ -14,7 +14,7 @@ from services.audio_processor import analyze_audio_file, analyze_audio_data, gen
 from services.url_processor import process_url_audio, is_youtube_url
 
 app = FastAPI(
-    title="Sonara API",
+    title="Zarah API",
     description="Music Information Retrieval (MIR) API for Chords, Key, Beat Tracking, and Rhythm Estimation",
     version="1.0.0"
 )
@@ -36,7 +36,7 @@ SAMPLE_SONGS = [
     {
         "id": "acoustic-pop",
         "title": "Sunny Acoustic Pop",
-        "artist": "Sonara Studio",
+        "artist": "Zarah Studio",
         "audioUrl": "/samples/acoustic-pop.wav",
         "duration": 16.0,
         "bpm": 120.0,
@@ -78,8 +78,8 @@ SAMPLE_SONGS = [
     },
     {
         "id": "blues-progression",
-        "title": "Midnight Blues Shuffle",
-        "artist": "Sonara Studio",
+        "title": "12-Bar Shuffle Groove",
+        "artist": "Zarah Studio",
         "audioUrl": "/samples/blues-progression.wav",
         "duration": 18.0,
         "bpm": 95.0,
@@ -120,8 +120,8 @@ SAMPLE_SONGS = [
     },
     {
         "id": "ballad",
-        "title": "Golden Hour Ballad",
-        "artist": "Sonara Studio",
+        "title": "Ambient Acoustic Ballad",
+        "artist": "Zarah Studio",
         "audioUrl": "/samples/ballad.wav",
         "duration": 16.0,
         "bpm": 76.0,
@@ -167,7 +167,7 @@ class UrlAnalysisRequest(BaseModel):
 @app.get("/")
 def root():
     return {
-        "name": "Sonara Audio Processing API",
+        "name": "Zarah Audio Processing API",
         "version": "1.0.0",
         "status": "healthy",
         "endpoints": ["/api/health", "/api/samples", "/api/analyze", "/api/analyze-url"]
@@ -176,7 +176,7 @@ def root():
 
 @app.get("/api/health")
 def health():
-    return {"status": "ok", "service": "Sonara-MIR-Backend"}
+    return {"status": "ok", "service": "Zarah-MIR-Backend"}
 
 
 @app.get("/api/samples")
