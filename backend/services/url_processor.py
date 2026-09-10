@@ -77,6 +77,15 @@ def download_youtube_audio(url: str, cache_id: str) -> Dict[str, Any]:
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
+        'extractor_args': {
+            'youtube': {
+                'player_client': ['android', 'ios', 'web_creator', 'mweb'],
+            }
+        },
+        'http_headers': {
+            'User-Agent': 'Mozilla/5.0 (Linux; Android 13; SM-G998B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36',
+            'Accept-Language': 'en-US,en;q=0.9',
+        },
         'quiet': True,
         'no_warnings': True,
         'noplaylist': True,
@@ -121,8 +130,8 @@ def download_youtube_audio(url: str, cache_id: str) -> Dict[str, Any]:
             raise ValueError("This YouTube video is age-restricted and requires authentication.")
         elif "Video unavailable" in err_msg:
             raise ValueError("This YouTube video is unavailable or has been removed.")
-        elif "Premieres in" in err_msg:
-            raise ValueError("This YouTube video is a scheduled premiere and has not aired yet.")
+        elif "Sign in to confirm you're not a bot" in err_msg:
+            raise ValueError("YouTube bot verification triggered. Please try again in a moment, or drop the audio file directly into Zarah.")
         else:
             clean_msg = err_msg.split("ERROR:")[-1].strip() if "ERROR:" in err_msg else err_msg
             raise ValueError(f"YouTube download failed: {clean_msg}")
