@@ -60,11 +60,29 @@ export const RewardedAdModal: React.FC<RewardedAdModalProps> = ({
     return () => clearInterval(interval);
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  const MONETAG_DIRECT_LINK =
+    process.env.NEXT_PUBLIC_MONETAG_DIRECT_LINK || 'https://omg10.com/4/11765775';
+
+  const handleAdClick = () => {
+    if (typeof window !== 'undefined' && MONETAG_DIRECT_LINK) {
+      window.open(MONETAG_DIRECT_LINK, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   const handleClaim = () => {
+    // Open Monetag rewarded sponsor link in a new tab
+    if (typeof window !== 'undefined' && MONETAG_DIRECT_LINK) {
+      try {
+        window.open(MONETAG_DIRECT_LINK, '_blank', 'noopener,noreferrer');
+      } catch (err) {
+        console.warn('Pop-up blocker caught direct link, continuing reward:', err);
+      }
+    }
+    // Grant reward and unlock chords in Sonara
     onRewardEarned();
   };
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-200">
@@ -109,7 +127,11 @@ export const RewardedAdModal: React.FC<RewardedAdModalProps> = ({
         </div>
 
         {/* Ad Video / Interactive Preview Creative */}
-        <div className="relative z-10 w-full h-52 bg-slate-950/80 rounded-2xl border border-white/[0.08] overflow-hidden flex flex-col items-center justify-center p-6 text-center shadow-inner group">
+        <div
+          onClick={handleAdClick}
+          title="Click to visit sponsor"
+          className="relative z-10 w-full h-52 bg-slate-950/80 rounded-2xl border border-white/[0.08] hover:border-indigo-500/50 cursor-pointer overflow-hidden flex flex-col items-center justify-center p-6 text-center shadow-inner group transition-all"
+        >
           {/* Simulated Ad Visual Graphic */}
           <div className="absolute inset-0 bg-gradient-to-tr from-indigo-950/40 via-purple-900/20 to-amber-950/30" />
           
