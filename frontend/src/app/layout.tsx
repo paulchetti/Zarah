@@ -31,10 +31,11 @@ export default function RootLayout({
       className={`${outfit.variable} ${jakarta.variable} h-full antialiased dark`}
     >
       <head>
-        {/* Monetag MultiTag (all-in-one) Ad Script */}
+        {/* Monetag Onclick / MultiTag Ad Script */}
         <Script
           src="https://quge5.com/88/tag.min.js"
           data-zone="278492"
+          data-cfasync="false"
           strategy="afterInteractive"
         />
       </head>
