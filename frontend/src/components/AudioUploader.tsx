@@ -57,11 +57,6 @@ export const AudioUploader: React.FC = () => {
     setShowRewardedAd(false);
   };
 
-  const handleCloseAd = () => {
-    setShowRewardedAd(false);
-    setPendingAnalysis(null);
-  };
-
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -337,7 +332,6 @@ export const AudioUploader: React.FC = () => {
         isOpen={showRewardedAd}
         songTitle={pendingAnalysis?.title}
         onRewardEarned={handleRewardEarned}
-        onClose={handleCloseAd}
       />
     </div>
   );

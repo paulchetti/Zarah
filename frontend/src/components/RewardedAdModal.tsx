@@ -101,15 +101,10 @@ export const RewardedAdModal: React.FC<RewardedAdModalProps> = ({
             <span className="text-xs text-slate-400">Rewarded Access</span>
           </div>
 
-          {onClose && (
-            <button
-              onClick={onClose}
-              title="Close without unlocking"
-              className="text-slate-500 hover:text-slate-300 p-1.5 rounded-lg hover:bg-white/5 transition-colors"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          )}
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900/90 text-amber-300 border border-amber-500/20 text-[11px] font-mono font-medium">
+            <span>🔒</span>
+            <span>Complete Ad to Unlock</span>
+          </div>
         </div>
 
         {/* Title */}
