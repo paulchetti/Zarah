@@ -30,15 +30,23 @@ def analyze_audio_data(
     rhythm_res = estimate_rhythm_and_beats(y, sr)
     beat_frames = rhythm_res.get("beatFrames")
 
-    # 2. Key & Scale Detection
-    key_res = detect_key(y, sr)
+    # Compute harmonic chroma once to share across Key Detection and Chord Recognition
+    try:
+        y_harmonic = librosa.effects.harmonic(y, margin=3.0)
+    except Exception:
+        y_harmonic = y
+    shared_chroma = librosa.feature.chroma_cqt(y=y_harmonic, sr=sr, hop_length=512)
 
-    # 3. Chord Progression Recognition (DSP baseline)
+    # 2. Key & Scale Detection (reusing pre-computed chroma)
+    key_res = detect_key(y, sr, chroma=shared_chroma)
+
+    # 3. Chord Progression Recognition (reusing pre-computed chroma)
     dsp_chords = recognize_chords(
         y=y,
         sr=sr,
         beat_frames=beat_frames,
-        total_duration=duration
+        total_duration=duration,
+        chroma=shared_chroma
     )
 
     # 4. Gemini AI Harmonic Refiner (Musical structure & authentic song recognition)

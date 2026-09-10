@@ -66,7 +66,8 @@ def recognize_chords(
     sr: int,
     beat_frames: np.ndarray = None,
     total_duration: float = None,
-    min_chord_duration: float = 0.75
+    min_chord_duration: float = 0.75,
+    chroma: np.ndarray = None
 ) -> List[Dict[str, Any]]:
     """
     Extracts time-aligned chord events using harmonic chroma features synchronized with musical measures.
@@ -77,15 +78,17 @@ def recognize_chords(
     if total_duration <= 0:
         return []
 
-    # Separate harmonic content to remove drum transient spikes
-    try:
-        y_harmonic = librosa.effects.harmonic(y, margin=3.0)
-    except Exception:
-        y_harmonic = y
-
-    # Compute CENS or CQT chromagram
     hop_length = 512
-    chroma = librosa.feature.chroma_cqt(y=y_harmonic, sr=sr, hop_length=hop_length)
+
+    if chroma is None:
+        # Separate harmonic content to remove drum transient spikes
+        try:
+            y_harmonic = librosa.effects.harmonic(y, margin=3.0)
+        except Exception:
+            y_harmonic = y
+
+        # Compute CENS or CQT chromagram
+        chroma = librosa.feature.chroma_cqt(y=y_harmonic, sr=sr, hop_length=hop_length)
 
     # If beat frames are provided and valid, perform beat-synchronous pooling
     if beat_frames is not None and len(beat_frames) > 2:

@@ -1,4 +1,7 @@
 """
+
+
+
 Gemini AI Musical Harmony & Chord Refiner Service
 Leverages Google Gemini to synthesize authentic, measure-aligned chord progressions,
 eliminating micro-chord jitter and providing harmonic perfection.
@@ -17,11 +20,10 @@ logger = logging.getLogger("gemini_refiner")
 
 # Preferred Gemini models in fallback order
 PREFERRED_MODELS = [
-    "gemini-3-flash-preview",
-    "gemini-3.5-flash",
-    "gemini-3.7-flash",
     "gemini-3.6-flash",
     "gemini-flash-latest",
+    "gemini-2.5-flash-lite",
+    "gemini-3-flash-preview",
 ]
 
 

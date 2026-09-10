@@ -98,7 +98,7 @@ export async function analyzeAudioUrl(url: string): Promise<AnalysisResult> {
   }
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 65000); // 65s for YouTube extraction & MIR
+  const timeoutId = setTimeout(() => controller.abort(), 120000); // 120s for YouTube extraction, DSP & Gemini AI
 
   try {
     const res = await fetch(`${API_BASE_URL}/api/analyze-url`, {

@@ -81,18 +81,21 @@ def estimate_key_from_chroma(chroma_mean: np.ndarray) -> Dict[str, Any]:
     }
 
 
-def detect_key(y: np.ndarray, sr: int) -> Dict[str, Any]:
+def detect_key(y: np.ndarray, sr: int, chroma: np.ndarray = None) -> Dict[str, Any]:
     """
     Detects the key and scale of an audio time series y with sample rate sr.
+    Can reuse pre-computed chroma feature matrix for maximum performance.
     """
-    # Harmonic-percussive separation to isolate pitch content from drums/transients
-    try:
-        y_harmonic = librosa.effects.harmonic(y, margin=3.0)
-    except Exception:
-        y_harmonic = y
+    if chroma is None:
+        # Harmonic-percussive separation to isolate pitch content from drums/transients
+        try:
+            y_harmonic = librosa.effects.harmonic(y, margin=3.0)
+        except Exception:
+            y_harmonic = y
 
-    # Compute Constant-Q chromagram for accurate musical pitch resolution
-    chroma = librosa.feature.chroma_cqt(y=y_harmonic, sr=sr, bins_per_octave=24)
+        # Compute Constant-Q chromagram for accurate musical pitch resolution
+        chroma = librosa.feature.chroma_cqt(y=y_harmonic, sr=sr, bins_per_octave=24)
+
     # Average energy across time
     chroma_mean = np.mean(chroma, axis=1)
 
